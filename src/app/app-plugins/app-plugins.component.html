@@ -1,9 +1,29 @@
-<form class="pluginForm">
-    <mat-form-field >
-      <input matInput *ngfor="let input of  inputs" placeholder="{{input.title}}" type="{{input.type}}">
-      <!-- <mat-checkbox *ngfor="let checkbox of  checkboxes">{{checkbox.options}}}</mat-checkbox> -->
+<mat-card id="Card" >
+    <mat-card-subtitle>Plugin : <h4>{{name}}</h4></mat-card-subtitle>
+    <mat-card-content>
+
+        <mat-form-field class="formfield" appearance="outline" *ngFor="let input of inputs">
+            <mat-label>{{input.title}}</mat-label>
+            <input matInput placeholder="{{input.title}}">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+          </mat-form-field>
+
+        <div class="checkboxes-div" *ngFor="let checkbox of checkboxes">
+            <h3 class="grpLabel">{{checkbox.title}} :  </h3>
+            <mat-checkbox class="checkbox" *ngFor="let option of checkbox.options" >{{option}}</mat-checkbox>
+          </div>
         
-    
-    </mat-form-field>
+        <div class="raiobuttons-div" *ngFor="let radio of radiobuttons">
+            <h3 class="grpLabel">{{radio.title}} :  </h3>
+            <mat-radio-button class="radio" *ngFor="let option of radio.options" >{{option}}</mat-radio-button>
+            </div>
+
+    </mat-card-content>
   
-  </form>
+  
+  
+
+    
+  
+</mat-card>
+<router-outlet></router-outlet>

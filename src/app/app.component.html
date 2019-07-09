@@ -2,7 +2,7 @@
 <mat-form-field>
   <mat-label>Select Plugin</mat-label>
   <mat-select>
-    <mat-option *ngFor="let plugin of plugins" [value]="plugin.value" [routerLink]="['showPlugins/'+plugin.value]" >
+    <mat-option *ngFor="let plugin of plugins" [value]="plugin.value" [routerLink]="['showPlugins', plugin.value]" >
       {{plugin.viewValue}}
     </mat-option>
   </mat-select>
