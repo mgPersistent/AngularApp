@@ -1,0 +1,58 @@
+{
+    "samplePlugin1":
+        {
+        "checkboxes": [
+                {
+            "title":"Checkbox Label",
+            "options": [
+                "Checkbox 1","Checkbox 2","Checkbox 3"
+                    ]
+                }
+            ],
+        "radiobuttons" : [
+                {
+            "title":"RadioButton Label",
+            "options": [
+                "radio1","radio2"
+                    ]
+                }
+            ],
+        "inputs" : [
+                {
+            "title": "Input Label",
+            "type" : "text"
+                }
+            ]
+        }
+    ,
+    "samplePlugin2":
+        {
+        "checkboxes": [
+                {
+            "title":"Checkbox Label",
+            "options": [
+                "Checkbox 1","Checkbox 2"
+                    ]
+                }
+            ],
+        "radiobuttons" : [
+                {
+            "title":"RadioButton Label",
+            "options": [
+                "radio1","radio2","radio3"
+                    ]
+                }
+            ],
+        "inputs" : [
+                {
+            "title": "Input Label 1",
+            "type" : "text"
+                },
+                {
+            "title": "Input Label 2",
+            "type" : "password"
+                }
+            ]
+        }
+
+}
