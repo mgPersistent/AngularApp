@@ -13,6 +13,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatCardModule } from "@angular/material/card";
 import { ImageCropperComponent } from './image-cropper/image-cropper.component';
 import { AngularCropperjsModule } from 'angular-cropperjs';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -33,7 +34,8 @@ import { AngularCropperjsModule } from 'angular-cropperjs';
     MatRadioModule,
     MatCardModule,
     AngularCropperjsModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

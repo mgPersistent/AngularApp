@@ -2,3 +2,11 @@
     margin:0 auto;
     width:800px;
 }
+#cropper-preview{
+    display: none;
+}
+#image-preview{
+    background-size: contain;
+    overflow: auto;
+    height: 400px;
+}

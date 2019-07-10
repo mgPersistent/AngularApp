@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { AngularCropperjsComponent, ImageCropperResult } from 'angular-cropperjs';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser'; 
+import { CropperComponent, ImageCropperResult } from 'angular-cropperjs';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import FileUploadWithPreview from 'file-upload-with-preview';
+import $ from 'jquery';
 
 
 @Component({
@@ -10,27 +12,38 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class ImageCropperComponent implements OnInit {
   name = 'Angular 5';
-  @ViewChild('angularCropper') public angularCropper: AngularCropperjsComponent;
+  @ViewChild('angularCropper',{static:true}) public angularCropper: CropperComponent;
   config = [];
-  imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Bartholdi_Fountain_in_Washington%2C_D.C._2012.JPG/800px-Bartholdi_Fountain_in_Washington%2C_D.C._2012.JPG";
 
   resultImage: any;
   resultResult: any;
 
+  imageUrl:any="";
+
+  
   constructor(
     private sanitizer: DomSanitizer
   ){}
 
   ngOnInit() {
+    const upload = new FileUploadWithPreview('myUniqueUploadId');
+
     
   }
 
   CropMe() {
-    // this.resultResult = this.angularCropper.imageUrl;
-    console.log("Hello");
-    // this.resultImage = this.angularCropper.cropper.getCroppedCanvas()
-    // console.log(this.resultImage);
-    this.angularCropper.exportCanvas();
+    
+    console.log('BoxDetails',this.angularCropper.cropper.getCropBoxData());
+    console.log('ImageUrl',this.imageUrl);
+    console.log('Plugin','ImageCropper');
+
+  }
+
+  getTools(){
+    let d=$("#image-preview").css("background-image");
+    this.imageUrl=this.sanitizer.bypassSecurityTrustUrl(d.substr(5,d.length-7));
+    $("#image-preview").hide();
+    $("#cropper-preview").show();
 
   }
 
@@ -40,7 +53,6 @@ export class ImageCropperComponent implements OnInit {
   }
 
 checkstatus(event: any) {
-  console.log(event.blob);
   if (event.blob === undefined) {
     return;
   }

@@ -2,19 +2,27 @@
         <mat-card-subtitle>Plugin : <h4>Image Cropper</h4></mat-card-subtitle>
         <mat-card-content>
     
-                    
-            <angular-cropper #angularCropper [cropperOptions]="config" 
+            <div class="custom-file-container" data-upload-id="myUniqueUploadId"  >
+                <label>Upload File <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">&times;</a></label>
+                <label class="custom-file-container__custom-file" >
+                    <input type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*"  aria-label="Select Image">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                    <span class="custom-file-container__custom-file__custom-file-control"></span>
+                </label>
+                <div class="custom-file-container__image-preview" id="image-preview">
+                </div>
+            </div>
+            <br>
+            <angular-cropper #angularCropper [cropperOptions]="config" id="cropper-preview"
             (export)="resultImageFun($event)" (ready)="checkstatus($event)"
-            [imageUrl]="imageUrl"></angular-cropper>
-            <br>
-            <br>
-            <button (click)="CropMe()">CropMe</button>
+            [imageUrl]="imageUrl" src=""></angular-cropper>
 
             <br>
             <br>
-            <img [src]="resultImage" />
-            <br>
-            <img [src]="resultResult" />
+            
+            <button mat-button (click)="getTools()">Get Tools</button>
+            <button mat-button (click)="CropMe()">Send</button>
+
 
         </mat-card-content>
       
