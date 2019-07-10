@@ -2,10 +2,20 @@
         <mat-card-subtitle>Plugin : <h4>Image Cropper</h4></mat-card-subtitle>
         <mat-card-content>
     
-        <!-- <input mat-input type="file" onchange="readDataUrl()"> -->
+                    
+            <angular-cropper #angularCropper [cropperOptions]="config" 
+            (export)="resultImageFun($event)" (ready)="checkstatus($event)"
+            [imageUrl]="imageUrl"></angular-cropper>
+            <br>
+            <br>
+            <button (click)="CropMe()">CropMe</button>
 
-        <angular-cropper [cropperOptions]="config" [imageUrl]="'https://imaging.nikon.com/lineup/lens/f-mount/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg'"></angular-cropper>
-    
+            <br>
+            <br>
+            <img [src]="resultImage" />
+            <br>
+            <img [src]="resultResult" />
+
         </mat-card-content>
       
       

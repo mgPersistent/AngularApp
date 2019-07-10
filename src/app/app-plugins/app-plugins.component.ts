@@ -32,10 +32,12 @@ export class AppPluginsComponent implements OnInit {
       this.name=params['plugin'];
       if(this.name=="ImageCropper")
         router.navigate(['imageCropper']);
-      this.inputs=[];
-      this.radiobuttons=[];
-      this.checkboxes=[];
-      this.getJsonData();
+      else{
+        this.inputs=[];
+        this.radiobuttons=[];
+        this.checkboxes=[];
+        this.getJsonData();
+      }
     });
    }
 
